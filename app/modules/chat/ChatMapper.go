@@ -18,7 +18,7 @@ func NewChatMapper() (*ChatMapper, error) {
 	return &ChatMapper{db: db}, nil
 }
 
-//
+// получение старых сообщений из бд
 func (m *ChatMapper) GetMessages() ([]*entity.Message, error) {
 	var messages []*entity.Message
 	result := m.db.Joins("Sendler").
@@ -33,7 +33,7 @@ func (m *ChatMapper) GetMessages() ([]*entity.Message, error) {
 	return messages, nil
 }
 
-//
+//добавление сообщения в бд
 func (m *ChatMapper) NewMessage(message *entity.Message) error {
 	result := m.db.Create(&message)
 	if result.Error != nil {

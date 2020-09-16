@@ -22,7 +22,7 @@ func NewAuthMapper() (*AuthMapper, error) {
 
 // Проверка никнейма
 func (m *AuthMapper) CheckNickname(user *entity.User) (*entity.User, error) {
-	//пробуем найти активного пользователя с таким ником
+	//пробуем найти активного пользователя с таким ником, у которого не вышел таймаут сессии
 	result := m.db.Where("nickname = ? AND date_create > ?", user.Nickname, user.DateCreate).Find(&user)
 	if result.Error != nil {
 		return user, result.Error
@@ -45,6 +45,7 @@ func (m *AuthMapper) NewUser(user *entity.User) (*entity.User, error) {
 	return user, nil
 }
 
+// изменяем дату создания пользователя, чтоы сделать его неактивным
 func (m *AuthMapper) Logout(user *entity.User) error {
 	result := m.db.Save(&user)
 	if result.Error!=nil{

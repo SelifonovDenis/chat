@@ -40,5 +40,6 @@ func (p *ChatProvider) NewMessage(message *entity.Message) error{
 func (p *ChatProvider) PrepareMessage(message *entity.Message){
 	message.SendlerId = message.Sendler.Id
 	message.Time = time.Now()
+	// xss защита
 	message.Text = html.EscapeString(message.Text)
 }

@@ -19,6 +19,7 @@ func (c CChat) ChatSocket(ws revel.ServerWebSocket) revel.Result {
 		return nil
 	}
 
+	// объявляем провайдер
 	var err error
 	c.provider, err = chat.NewChatProvider()
 	if err != nil{
@@ -26,7 +27,7 @@ func (c CChat) ChatSocket(ws revel.ServerWebSocket) revel.Result {
 		c.response.Data = err.Error()
 		return c.RenderJSON(c.response)
 	}
-
+	// получаем сообщения из бд
 	messages, err :=c.provider.GetMessages()
 	if err!=nil{
 		c.response.Type = entity.ResponseTypeError
@@ -34,6 +35,7 @@ func (c CChat) ChatSocket(ws revel.ServerWebSocket) revel.Result {
 		return c.RenderJSON(c.response)
 	}
 
+	// отправляем сообщения из бд на фронт
 	for _, message := range messages {
 		if ws.MessageSendJSON(&message) != nil {
 			return nil

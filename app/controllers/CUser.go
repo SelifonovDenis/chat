@@ -9,7 +9,7 @@ type CUser struct {
 	*revel.Controller
 	response entity.Response
 }
-
+// получение пользователя из сессии
 func (c *CUser) GetUser() revel.Result {
 
 	user, err:= c.Session.Get("user")

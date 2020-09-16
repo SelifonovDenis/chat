@@ -42,7 +42,7 @@ func Say(message entity.Message) {
 	publish <- message
 }
 
-// This function loops forever, handling the chat room pubsub
+// горутина отправки сообщений подписчикам
 func chatroom() {
 	subscribers := list.New()
 
@@ -82,77 +82,3 @@ func drain(ch <- chan entity.Message) {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//// событие для сокета
-//type Event struct {
-//	Type      string // тип события "join" подключение, "leave" отключение, "message" сообщение
-//	User      string
-//	Timestamp int    // Unix timestamp (secs)
-//	Text      string // What the user said (if Type == "message")
-//}
-//
-////подписка на события
-//type Subscription struct {
-//	Archive []Event      // Архив событий.
-//	New     <-chan Event // Сюда добавляются новые события.
-//}
-//
-//// Owner of a subscription must cancel it when they stop listening to events.
-//func (s Subscription) Cancel() {
-//	unsubscribe <- s.New // Unsubscribe the channel.
-//	drain(s.New)         // Drain it, just in case there was a pending publish.
-//}
-//
-//func newEvent(typ, user, msg string) Event {
-//	return Event{typ, user, int(time.Now().Unix()), msg}
-//}
-//
-//// новая подписка
-//func Subscribe() Subscription {
-//	resp := make(chan Subscription)
-//	subscribe <- resp
-//	return <-resp
-//}
-//
-//func Join(user string) {
-//	publish <- newEvent("join", user, "")
-//}
-//
-//func Say(user, message string) {
-//	publish <- newEvent("message", user, message)
-//}
-//
-//func Leave(user string) {
-//	publish <- newEvent("leave", user, "")
-//}
-//
-//const archiveSize = 10
-//
-//var (
-//	// Send a channel here to get room events back.  It will send the entire
-//	// archive initially, and then new messages as they come in.
-//	subscribe = make(chan (chan<- Subscription), 10)
-//	// Send a channel here to unsubscribe.
-//	unsubscribe = make(chan (<-chan Event), 10)
-//	// Send events here to publish them.
-//	publish = make(chan Event, 10)
-//)
-//
-
