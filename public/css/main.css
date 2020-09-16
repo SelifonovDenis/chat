@@ -1,0 +1,39 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+}
+#root {
+    background: url(../img/back.png) no-repeat center top;
+    position: relative;
+    background-size:cover;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+#root:before
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+}
+#page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color:white!important;
+    color:black!important;
+}

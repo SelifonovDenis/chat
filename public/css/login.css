@@ -1,0 +1,67 @@
+
+.welcome {
+    width: 100vw;
+    text-align:center;
+    position:relative;
+}
+.welcome h1{
+    padding-top: 1em;
+    color: white;
+    font-style:italic;
+    font-size: 3em;
+}
+
+.loginForm {
+    position: relative;
+    width: 50%;
+    height: 50vh;
+    margin: 10vh auto 0 auto;
+    text-align: center;
+    color:white;
+    font-size: 2em;
+}
+.loginForm input{
+    background-color:transparent;
+    color: white;
+    font-size: 0.8em;
+    border-radius: 10px 0 0 10px;
+    border-color: #A9BDFE;
+}
+.loginForm button{
+    background-color:transparent;
+    color: white;
+    font-size: 0.8em;
+    border-radius: 0 10px 10px 0;
+    border-color: #A9BDFE;
+}
+.loginWelcome{
+    position: relative;
+    width: 50%;
+    height: 50vh;
+    margin: 10vh auto 0 auto;
+    text-align: center;
+    color:white;
+    font-size: 2em;
+}
+
+.loginWelcome button{
+    background-color:transparent;
+    color: white;
+    font-size: 0.8em;
+    border-radius: 10px;
+    border-color: #A9BDFE;
+    margin: 5px;
+}
+
+.error {
+    color: red;
+    text-align: left;
+    font-size: 0.8em;
+    padding-top: 10px;
+}
+
+.nickname{
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}

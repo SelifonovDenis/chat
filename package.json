@@ -1,0 +1,37 @@
+{
+  "name": "just_chatting",
+  "version": "1.0.0",
+  "description": "A high-productivity web framework for the [Go language](http://www.golang.org/).",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "webpack -p",
+    "watch": "webpack --watch --mode=development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.6.5",
+    "css-loader": "^4.2.2",
+    "file-loader": "^6.1.0",
+    "react-router-dom": "^5.2.0",
+    "regenerator-runtime": "^0.13.7",
+    "resolve-url-loader": "^3.1.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "history": "latest"
+  }
+}
